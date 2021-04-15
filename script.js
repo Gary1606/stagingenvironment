@@ -200,7 +200,8 @@ window.onload = function () {
       const isButtonLoaded = document.querySelector(".od-OverQuota-buttonArea");
       const isAppLoaded = document.querySelector("#appRoot");
       const isLeftNavLoaded = document.querySelector(".LeftNav-subLinks");
-      if (isButtonLoaded && isAppLoaded && isLeftNavLoaded) {
+      const isHeaderLoaded = document.getElementById("O365_HeaderLeftRegion");
+      if (isButtonLoaded && isAppLoaded && isLeftNavLoaded && isHeaderLoaded) {
         // Changing ids and classnames of all the elements by appending it with '-proxy'
         Array.from(
           document.querySelector("main").querySelectorAll("*[id]")
@@ -235,26 +236,29 @@ window.onload = function () {
         buttonFrag.appendChild(buttonItemsArray[1]);
         buttonFrag.appendChild(buttonItemsArray[0]);
         buttonList.appendChild(buttonFrag);
+
+        // changing the position of app menu
+        document
+          .getElementById("O365_HeaderLeftRegion")
+          .addEventListener("click", function (event) {
+            setTimeout(function () {
+              const appFrag = document.createDocumentFragment();
+              const appList = document.querySelector(".FAdEbQISkGJuszLsyYq5z");
+              const appItems = appList.querySelectorAll(
+                "._1LmT2pyh06k_FxmBeyjKZG"
+              );
+              const appItemsArray = Array.from(appItems);
+              const shuffledAppItemsArray = shuffle(appItemsArray);
+              for (let item of shuffledAppItemsArray) {
+                appFrag.appendChild(item);
+              }
+              appList.appendChild(appFrag);
+            }, 50);
+          });
+
         clearInterval(modifyContentInterval);
       }
     };
     let modifyContentInterval = setInterval(modifyContent, 2000);
-
-    // changing the position of app menu
-    document
-      .getElementById("O365_HeaderLeftRegion")
-      .addEventListener("click", function (event) {
-        setTimeout(function () {
-          const appFrag = document.createDocumentFragment();
-          const appList = document.querySelector(".FAdEbQISkGJuszLsyYq5z");
-          const appItems = appList.querySelectorAll("._1LmT2pyh06k_FxmBeyjKZG");
-          const appItemsArray = Array.from(appItems);
-          const shuffledAppItemsArray = shuffle(appItemsArray);
-          for (let item of shuffledAppItemsArray) {
-            appFrag.appendChild(item);
-          }
-          appList.appendChild(appFrag);
-        }, 50);
-      });
   }
 };
