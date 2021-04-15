@@ -196,9 +196,6 @@ window.onload = function () {
 
       return array;
     }
-
-    let modifyContentInterval = setInterval(modifyContent, 2000);
-
     modifyContent = function () {
       const isButtonLoaded = document.querySelector(".od-OverQuota-buttonArea");
       const isAppLoaded = document.querySelector("#appRoot");
@@ -241,6 +238,7 @@ window.onload = function () {
         clearInterval(modifyContentInterval);
       }
     };
+    let modifyContentInterval = setInterval(modifyContent, 2000);
 
     // changing the position of app menu
     document
