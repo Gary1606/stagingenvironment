@@ -155,8 +155,11 @@ window.onload = function () {
         });
     }
   } else if (path.includes("onedrive")) {
+    console.log("It is onedrive");
     let uri = location.pathname.substring(1);
     if (uri === "") {
+      console.log("It is onedrive's home page");
+
       // header component styling
       let onedrive_header = document.getElementById("O365_NavHeader");
       onedrive_header.style.cssText = "background-color: #184b71;";
