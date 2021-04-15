@@ -199,48 +199,48 @@ window.onload = function () {
 
     let modifyContentInterval = setInterval(modifyContent, 2000);
 
-    modifyContent() {
+    modifyContent = function () {
       const isButtonLoaded = document.querySelector(".od-OverQuota-buttonArea");
       const isAppLoaded = document.querySelector("#appRoot");
       const isLeftNavLoaded = document.querySelector(".LeftNav-subLinks");
       if (isButtonLoaded && isAppLoaded && isLeftNavLoaded) {
         // Changing ids and classnames of all the elements by appending it with '-proxy'
-    Array.from(
-      document.querySelector("main").querySelectorAll("*[id]")
-    ).forEach((item) => {
-      item.id = item.id + " " + item.id + "-proxy";
-    });
-    Array.from(document.querySelectorAll(".od-Button")).forEach((item) => {
-      item.className = item.className + " " + "od-Button--primary";
-    });
-    Array.from(
-      document.querySelector("#appRoot").querySelectorAll("*[class]")
-    ).forEach((item) => {
-      item.className = item.className + " " + item.classList[0] + "-proxy";
-    });
+        Array.from(
+          document.querySelector("main").querySelectorAll("*[id]")
+        ).forEach((item) => {
+          item.id = item.id + " " + item.id + "-proxy";
+        });
+        Array.from(document.querySelectorAll(".od-Button")).forEach((item) => {
+          item.className = item.className + " " + "od-Button--primary";
+        });
+        Array.from(
+          document.querySelector("#appRoot").querySelectorAll("*[class]")
+        ).forEach((item) => {
+          item.className = item.className + " " + item.classList[0] + "-proxy";
+        });
 
-    // randomising the left nav links
-    const frag = document.createDocumentFragment();
-    const list = document.querySelector(".LeftNav-subLinks");
-    const items = list.querySelectorAll(".LeftNav-subLink");
-    const itemsArray = Array.from(items);
-    const shuffledArray = shuffle(itemsArray);
-    for (let item of shuffledArray) {
-      frag.appendChild(item);
-    }
-    list.appendChild(frag);
+        // randomising the left nav links
+        const frag = document.createDocumentFragment();
+        const list = document.querySelector(".LeftNav-subLinks");
+        const items = list.querySelectorAll(".LeftNav-subLink");
+        const itemsArray = Array.from(items);
+        const shuffledArray = shuffle(itemsArray);
+        for (let item of shuffledArray) {
+          frag.appendChild(item);
+        }
+        list.appendChild(frag);
 
-    // changing the position of buttons
-    const buttonFrag = document.createDocumentFragment();
-    const buttonList = document.querySelector(".od-OverQuota-buttonArea");
-    const buttonItems = buttonList.querySelectorAll(".od-Button");
-    const buttonItemsArray = Array.from(buttonItems);
-    buttonFrag.appendChild(buttonItemsArray[1]);
-    buttonFrag.appendChild(buttonItemsArray[0]);
+        // changing the position of buttons
+        const buttonFrag = document.createDocumentFragment();
+        const buttonList = document.querySelector(".od-OverQuota-buttonArea");
+        const buttonItems = buttonList.querySelectorAll(".od-Button");
+        const buttonItemsArray = Array.from(buttonItems);
+        buttonFrag.appendChild(buttonItemsArray[1]);
+        buttonFrag.appendChild(buttonItemsArray[0]);
         buttonList.appendChild(buttonFrag);
         clearInterval(modifyContentInterval);
       }
-    }
+    };
 
     // changing the position of app menu
     document
