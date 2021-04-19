@@ -3,8 +3,7 @@ window.onload = function () {
   console.log(path);
   if (path.includes("amazon")) {
     let importedScript = document.createElement("script");
-    importedScript.src =
-      "https://cdn.jsdelivr.net/gh/Gary1606/stagingenvironment@2.0v5/amazon/script.js";
+    importedScript.src = "amazon/script.js";
     importedScript.type = "text/javascript";
     importedScript.defer = true;
     document.getElementsByTagName("head").item(0).appendChild(importedScript);
