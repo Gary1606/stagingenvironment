@@ -1,4 +1,7 @@
 console.log("It is amazon");
+const HEADER_STYLE =
+  "padding:28px;font-size:20px;background:greenyellow;border-radius:17px";
+const BORDER_STYLE = "border: 5px solid #ff2d2d;";
 let parent = document.getElementById("nav-logo");
 let child = document.getElementById("nav-logo").firstElementChild;
 let replacer = document.createElement("div");
