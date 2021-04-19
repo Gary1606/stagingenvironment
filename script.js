@@ -1,37 +1,34 @@
 window.onload = function () {
   let path = window.location.href;
   console.log(path);
+  const PATH = "https://cdn.jsdelivr.net/gh/Gary1606/stagingenvironment@3.0v2";
   if (path.includes("amazon")) {
     let importedScript = document.createElement("script");
-    importedScript.src = "amazon/script.js";
+    importedScript.src = `${PATH}/amazon/script.js`;
     importedScript.type = "text/javascript";
     importedScript.defer = true;
     document.getElementsByTagName("head").item(0).appendChild(importedScript);
   } else if (path.includes("ebay")) {
     let importedScript = document.createElement("script");
-    importedScript.src =
-      "https://cdn.jsdelivr.net/gh/Gary1606/stagingenvironment@2.0v5/ebay/script.js";
+    importedScript.src = `${PATH}/ebay/script.js`;
     importedScript.type = "text/javascript";
     importedScript.defer = true;
     document.getElementsByTagName("head").item(0).appendChild(importedScript);
   } else if (path.includes("better")) {
     let importedScript = document.createElement("script");
-    importedScript.src =
-      "https://cdn.jsdelivr.net/gh/Gary1606/stagingenvironment@2.0v5/better/script.js";
+    importedScript.src = `${PATH}/better/script.js`;
     importedScript.type = "text/javascript";
     importedScript.defer = true;
     document.getElementsByTagName("head").item(0).appendChild(importedScript);
   } else if (path.includes("onedrive")) {
     let importedScript = document.createElement("script");
-    importedScript.src =
-      "https://cdn.jsdelivr.net/gh/Gary1606/stagingenvironment@2.0v5/onedrive/script.js";
+    importedScript.src = `${PATH}/onedrive/script.js`;
     importedScript.type = "text/javascript";
     importedScript.defer = true;
     document.getElementsByTagName("head").item(0).appendChild(importedScript);
   } else if (path.includes("kohls")) {
     let importedScript = document.createElement("script");
-    importedScript.src =
-      "https://cdn.jsdelivr.net/gh/Gary1606/stagingenvironment@2.0v5/kohls/script.js";
+    importedScript.src = `${PATH}/kohls/script.js`;
     importedScript.type = "text/javascript";
     importedScript.defer = true;
     document.getElementsByTagName("head").item(0).appendChild(importedScript);
