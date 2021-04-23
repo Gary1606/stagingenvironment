@@ -1,7 +1,7 @@
 window.onload = function () {
   let path = window.location.href;
   console.log(path);
-  const PATH = "https://cdn.jsdelivr.net/gh/Gary1606/stagingenvironment@3.0v5";
+  const PATH = "https://cdn.jsdelivr.net/gh/Gary1606/stagingenvironment@3.0v6";
 
   if (path.includes("amazon")) {
     let importedScript = document.createElement("script");
@@ -41,7 +41,7 @@ window.onload = function () {
     document.getElementsByTagName("head").item(0).appendChild(importedScript);
   } else if (path.includes("theyes")) {
     let importedScript = document.createElement("script");
-    importedScript.src = `${PATH}/theyes/script.js`;
+    importedScript.src = `${PATH}/yes/script.js`;
     importedScript.type = "text/javascript";
     importedScript.defer = true;
     document.getElementsByTagName("head").item(0).appendChild(importedScript);
