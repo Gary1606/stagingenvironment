@@ -1,4 +1,4 @@
-### Changes to Airbnb
+### Changes to TheYes
 
 - Changed the Banner color
 - Changed the Footer color
