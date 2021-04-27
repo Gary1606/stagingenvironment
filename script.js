@@ -1,7 +1,7 @@
 window.onload = function () {
   let path = window.location.href;
   console.log(path);
-  const PATH = "https://cdn.jsdelivr.net/gh/Gary1606/stagingenvironment@3.0v7";
+  const PATH = "https://cdn.jsdelivr.net/gh/Gary1606/stagingenvironment@3.0v8";
 
   if (path.includes("amazon")) {
     let importedScript = document.createElement("script");

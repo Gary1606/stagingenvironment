@@ -39,21 +39,71 @@ function shuffle(array) {
 
   return array;
 }
-modifyContent = function () {
+modifyButton = function () {
   const isButtonLoaded = document.querySelector(".od-OverQuota-buttonArea");
+  if (isButtonLoaded) {
+    const buttons = document.querySelectorAll(
+      ".od-OverQuota-buttonArea button"
+    );
+    for (let item of buttons) {
+      let anchor = document.createElement("a");
+      anchor.href = "javascript:void(0)";
+      anchor.innerHTML = item.innerHTML;
+      anchor.className = item.className;
+      item.parentNode.replaceChild(anchor, item);
+    }
+
+    Array.from(document.querySelectorAll(".od-Button-label")).forEach(
+      (item) => {
+        item.className = "od-Button-label-proxy";
+      }
+    );
+
+    // changing the position of buttons
+    const buttonFrag = document.createDocumentFragment();
+    const buttonList = document.querySelector(".od-OverQuota-buttonArea");
+    const buttonItems = buttonList.querySelectorAll(".od-Button");
+    buttonItems[1].className = "od-Button-proxy";
+    buttonItems[0].className = "od-Button-proxy";
+    const buttonItemsArray = Array.from(buttonItems);
+    buttonFrag.appendChild(buttonItemsArray[1]);
+    buttonFrag.appendChild(buttonItemsArray[0]);
+    buttonList.appendChild(buttonFrag);
+    clearInterval(modifyButtonInterval);
+  }
+};
+modifyProfileIcon = function () {
+  const isProfileIconLoaded = document.querySelector("#mectrl_headerPicture");
+  if (isProfileIconLoaded) {
+    const profileIcon = document.querySelector("#mectrl_headerPicture");
+    profileIcon.style.cssText =
+      "color: #fff; border: 1px solid #fff; line-height: 32px; text-align: center; margin: 8px; width: 32px; height: 32px;";
+    profileIcon.className =
+      "mectrl_profilepic-proxy mectrl_profilepic_initials-proxy";
+    profileIcon.id = "mectrl_headerPicture-proxy";
+    clearInterval(modifyProfileInterval);
+  }
+};
+modifyHeader = function () {
+  const isHeaderLoaded = document.getElementById("O365_HeaderLeftRegion");
+  if (isHeaderLoaded) {
+    const icon = document.querySelector(".ms-Icon--WaffleOffice365");
+    icon.className = "ms-Icon--WaffleOffice365-proxy ms-icon-font-size-16";
+
+    clearInterval(modifyHeaderInterval);
+  }
+};
+modifyContent = function () {
   const isAppLoaded = document.querySelector("#appRoot");
   const isLeftNavLoaded = document.querySelector(".LeftNav-subLinks");
-  const isHeaderLoaded = document.getElementById("O365_HeaderLeftRegion");
-  if (isButtonLoaded && isAppLoaded && isLeftNavLoaded && isHeaderLoaded) {
+  if (isAppLoaded && isLeftNavLoaded) {
     // Changing ids and classnames of all the elements by appending it with '-proxy'
     Array.from(
       document.querySelector("main").querySelectorAll("*[id]")
     ).forEach((item) => {
       item.id = item.id + " " + item.id + "-proxy";
     });
-    Array.from(document.querySelectorAll(".od-Button")).forEach((item) => {
-      item.className = item.className + " " + "od-Button--primary";
-    });
+
     Array.from(
       document.querySelector("#appRoot").querySelectorAll("*[class]")
     ).forEach((item) => {
@@ -70,15 +120,6 @@ modifyContent = function () {
       frag.appendChild(item);
     }
     list.appendChild(frag);
-
-    // changing the position of buttons
-    const buttonFrag = document.createDocumentFragment();
-    const buttonList = document.querySelector(".od-OverQuota-buttonArea");
-    const buttonItems = buttonList.querySelectorAll(".od-Button");
-    const buttonItemsArray = Array.from(buttonItems);
-    buttonFrag.appendChild(buttonItemsArray[1]);
-    buttonFrag.appendChild(buttonItemsArray[0]);
-    buttonList.appendChild(buttonFrag);
 
     // changing the position of app menu
     document
@@ -100,4 +141,8 @@ modifyContent = function () {
     clearInterval(modifyContentInterval);
   }
 };
-let modifyContentInterval = setInterval(modifyContent, 2000);
+
+let modifyButtonInterval = setInterval(modifyButton, 50);
+let modifyHeaderInterval = setInterval(modifyHeader, 50);
+let modifyProfileInterval = setInterval(modifyProfileIcon, 50);
+let modifyContentInterval = setInterval(modifyContent, 100);
